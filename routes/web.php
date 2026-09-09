@@ -7,7 +7,7 @@ Route::get('/', function () {
 });
 
 Route::get('/projects', function () {
-    return 'My kitchen projects';
+    return view('projects');
 });
 
 Route::get('/dashboard', function () {
