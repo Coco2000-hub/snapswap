@@ -24,4 +24,9 @@ class ProjectController extends Controller
     {
         return view('create');
     }
+
+public function store()
+{
+    dd(request()->only(['title', 'description']));
+}
 }
