@@ -14,5 +14,11 @@ class ProjectController extends Controller
         return view('projects',['projects'=> $projects]);
         
     }
-    //
+
+    public function show($id)
+    {
+        $project = Project::findOrFail($id);
+        
+        return view('project', ['project' => $project]);
+    }
 }
