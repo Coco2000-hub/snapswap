@@ -27,6 +27,16 @@ class ProjectController extends Controller
 
 public function store()
 {
-    dd(request()->only(['title', 'description']));
+ $data = request()->validate([
+    'title' => 'required|string|max:255',
+    'description' => 'required|string',
+]);
+
+$project = new Project();
+$project->title = $data['title'];
+$project->description = $data['description'];
+$project->save();
+
+return redirect('/projects');
 }
 }
