@@ -24,6 +24,32 @@ class ProjectController extends Controller
     {
         return view('create');
     }
+   
+    public function edit($id)
+{
+    $project = Project::findOrFail($id);
+
+    return view('edit', ['project' => $project]);
+}
+
+public function update($id)
+{
+    $project = Project::findOrFail($id);
+
+    $data = request()->validate([
+        'title' => 'required|string|max:255',
+        'description' => 'required|string',
+    ]);
+
+    $project->title = $data['title'];
+    $project->description = $data['description'];
+    $project->save();
+
+    return redirect('/projects/' . $project->id);
+}
+
+
+
 
 public function store()
 {
