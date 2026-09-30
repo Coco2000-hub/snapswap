@@ -11,7 +11,9 @@ Route::get('/', function () {
 Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/projects/create', [ProjectController::class, 'create']);
 Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
+
 Route::get('/projects/{id}',[ProjectController::class, 'show']);
+Route::get('/projects/{id}/edit', [ProjectController::class, 'edit']);
 
 
 
