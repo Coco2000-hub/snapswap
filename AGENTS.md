@@ -174,3 +174,33 @@ This project has domain-specific skills available in `**/skills/**`. You MUST ac
 - After the feature tests pass, ask the user to run the complete suite with `php artisan test --compact`.
 
 </laravel-boost-guidelines>
+
+
+# SnapSwap learning workflow and Vault context
+
+These project-specific instructions implement Constantin's agreed workflow. The Obsidian Vault is the canonical source for goals, course requirements, decisions and learning progress; the repository is the source of truth for implemented code. Other chats are not automatically available. Do not assume their contents or claim to have read them.
+
+## Start every new coding session
+
+Read these local files using their absolute paths before proposing implementation:
+
+1. `/Users/constantinkoch/Documents/Obsidian Vault/CLAUDE.md` — canonical Vault rules. Also read the Vault's `AGENTS.md` before changing any Vault note.
+2. `/Users/constantinkoch/Documents/Obsidian Vault/02 Projekte/Coding lernen mit SnapSwap.md` — canonical project goal, agreed scope, roles and dated learning history.
+3. `/Users/constantinkoch/Documents/Obsidian Vault/04 Ressourcen/Coding lernen/Software Development Basics - Kursübersicht und Anforderungen.md` — course requirements and dated updates.
+4. `/Users/constantinkoch/Documents/Obsidian Vault/04 Ressourcen/Coding lernen/Nico Unterricht September - Prüfungsrelevante Auswertung.md` — Nico's actual classroom guidance, exam statements and analysis limits.
+
+Read only relevant curated notes; do not recursively ingest the Vault or follow links into `07 Anhänge/Geschützte Rohdaten/` without explicit permission in the current task. The paths above are for this local Mac; if unavailable, state the missing source and do not invent its contents. Do not copy the Vault into the repository or include private Vault content in Git commits.
+
+Inspect `git status --short` and the relevant current code. Saved notes and screenshots are dated evidence, not proof of today's implementation. Unsaved VS Code buffers may differ from disk: preserve them and never save/revert them without checking the task context. Distinguish planned, implemented and actually verified behavior. Verify time-sensitive deadlines against the current official course source when needed.
+
+## How to collaborate
+
+- Explain in German; write code and commit messages in English.
+- Default to learning together: Constantin implements, the assistant explains, reviews and helps debug. Give a small concrete step with its purpose and a checkable result; adapt the step size to his feedback. Do not implement a whole feature merely because he asks how it works.
+- When Constantin explicitly requests implementation or a fix, perform that scoped work and explain how it works. This setup request authorizes configuration/context files, not completing application features.
+- Let Constantin explain the data flow and decisions. Help him prepare to find and explain his own code and make small changes during the project defense.
+- Course requirements and confirmed project choices outrank optional examples. Do not add complexity or substitute unrelated PHP courses for Nico's teaching.
+- Persist durable decisions and verified learning progress as small dated additions to the canonical project note. Before Vault edits, follow its rules and use paths relative to the Vault root. Record the next concrete step and any unverified points so a new chat can continue; do not save every chat message or invent progress.
+- Do not commit, push, deploy, submit work or modify/delete application data unless the current task authorizes that action. Do not run `migrate:fresh` just to check context.
+
+The project scope and permissions are maintained only in the canonical project note. Re-read them rather than maintaining a competing specification here. Existing Laravel Boost guidance above continues to apply to actual code changes; optional course tests do not justify deleting existing repository tests.
