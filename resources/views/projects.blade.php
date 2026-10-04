@@ -2,8 +2,13 @@
 
 @foreach ($projects as $project)
 <p>
-    <a href="/projects/{{ $project->id }}">{{ $project->title }}<a>
+    <a href="/projects/{{ $project->id }}">{{ $project->title }}</a>
 </p>
 
 <p>{{ $project->description }}</p>
+
+<p>
+    <a href="/projects/{{ $project->id }}/edit">Edit</a>
+</p>
 @endforeach
+
