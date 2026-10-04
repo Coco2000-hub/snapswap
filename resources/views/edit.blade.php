@@ -9,9 +9,15 @@
 <label for="title">Title</label>
 <input type="text" id="title" name="title"
        value="{{ $project->title }}">
+       @error('title')
+    <p>{{ $message }}</p>
+@enderror
 
 <label for="description">Description</label>
 <textarea id="description" name="description">{{ $project->description }}</textarea>
+@error('description')
+    <p>{{ $message }}</p>
+@enderror
 
 <button type="submit">Save changes</button>
 </form>

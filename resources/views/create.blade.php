@@ -4,9 +4,15 @@
     @csrf
     <Label for="title">Title</Label>
     <input type="text" id="title" name="title">
+    @error('title')
+    <p>{{ $message }}</p>
+@enderror
 
     <label for="description">Description</label>
 <textarea id="description" name="description"></textarea>
+@error('description')
+    <p>{{ $message }}</p>
+@enderror
 <button type="submit">Submit</button>
 </form>
 <h2><a href="/projects">Back to all projects</a></h2>
