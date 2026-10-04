@@ -48,7 +48,13 @@ public function update($id)
     return redirect('/projects/' . $project->id);
 }
 
+public function destroy($id)
+{
+    $project = Project::findOrFail($id);
+    $project->delete();
 
+    return redirect('/projects');
+}
 
 
 public function store()
