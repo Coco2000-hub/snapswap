@@ -14,7 +14,7 @@ Route::post('/projects', [ProjectController::class, 'store'])->name('projects.st
 
 Route::get('/projects/{id}',[ProjectController::class, 'show']);
 Route::get('/projects/{id}/edit', [ProjectController::class, 'edit']);
-
+Route::patch('/projects/{id}', [ProjectController::class, 'update'])->name('projects.update');
 
 
 Route::get('/dashboard', function () {
