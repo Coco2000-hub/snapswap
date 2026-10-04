@@ -1,5 +1,5 @@
 <h1>My kitchen projects</h1>
-
+<p><a href="/projects/create">Create project</a></p>
 @foreach ($projects as $project)
 <p>
     <a href="/projects/{{ $project->id }}">{{ $project->title }}</a>
