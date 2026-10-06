@@ -50,4 +50,11 @@ class User extends Authenticatable
 {
     return $this->hasMany(Project::class);
 }
+
+public function isAdvisor(): bool
+{
+    return $this->role === 'advisor';
 }
+    
+}
+    
