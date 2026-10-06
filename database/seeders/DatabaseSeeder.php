@@ -20,7 +20,12 @@ class DatabaseSeeder extends Seeder
     'email' => 'admin@admin.com',
     'password' => 'password',
 ]);
-
+User::factory()->create([
+    'name' => 'Advisor User',
+    'email' => 'advisor@admin.com',
+    'password' => 'password',
+    'role' => 'advisor',
+]);
 Project::factory()
     ->count(5)
     ->for($admin)
