@@ -12,10 +12,10 @@
 </p>
 
 <p>{{ $project->description }}</p>
-
+@if ($project->user_id === request()->user()->id)
 <p>
     <a href="/projects/{{ $project->id }}/edit">Edit</a>
 </p>
-
+@endif
 @endforeach
 
