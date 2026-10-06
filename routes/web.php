@@ -8,6 +8,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::middleware('auth')->group(function () {
+
+
 Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/projects/create', [ProjectController::class, 'create']);
 Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
@@ -16,6 +19,8 @@ Route::get('/projects/{id}',[ProjectController::class, 'show']);
 Route::get('/projects/{id}/edit', [ProjectController::class, 'edit']);
 Route::patch('/projects/{id}', [ProjectController::class, 'update'])->name('projects.update');
 Route::delete('/projects/{id}', [ProjectController::class, 'destroy'])->name('projects.destroy');
+
+});
 
 Route::get('/dashboard', function () {
     return view('userzone.dashboard');
