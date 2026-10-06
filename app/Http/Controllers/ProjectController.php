@@ -8,14 +8,25 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = request()->user()->projects;
+    $user = request()->user();
 
+    if ($user->isAdvisor()) {
+        $projects = Project::all();
+    } else {
+        $projects = $user->projects;
+    }
         return view('projects', ['projects' => $projects]);
     }
 
     public function show($id)
     {
-   $project = request()->user()->projects()->findOrFail($id);
+  $user = request()->user();
+
+    if ($user->isAdvisor()) {
+        $project = Project::findOrFail($id);
+    } else {
+        $project = $user->projects()->findOrFail($id);
+    }
 
         return view('project', ['project' => $project]);
     }
