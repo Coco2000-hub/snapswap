@@ -1,4 +1,5 @@
 <h1>Edit project</h1>
+<p>Signed in as {{ request()->user()->name }}</p>
 
 
 <form method="POST" action="/projects/{{ $project->id }}">

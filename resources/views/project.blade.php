@@ -1,5 +1,6 @@
 <h1>{{ $project->title }}</h1>
 <p>{{ $project->description }}</p>
+<p>Signed in as {{ request()->user()->name }}</p>
 
 <p>
     <a href="/projects/{{ $project->id }}/edit">Edit</a>

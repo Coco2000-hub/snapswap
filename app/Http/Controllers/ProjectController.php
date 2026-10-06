@@ -15,7 +15,7 @@ class ProjectController extends Controller
 
     public function show($id)
     {
-        $project = Project::findOrFail($id);
+   $project = request()->user()->projects()->findOrFail($id);
 
         return view('project', ['project' => $project]);
     }
@@ -27,14 +27,14 @@ class ProjectController extends Controller
    
     public function edit($id)
 {
-    $project = Project::findOrFail($id);
+    $project = request()->user()->projects()->findOrFail($id);
 
     return view('edit', ['project' => $project]);
 }
 
 public function update($id)
 {
-    $project = Project::findOrFail($id);
+    $project = request()->user()->projects()->findOrFail($id);
 
     $data = request()->validate([
         'title' => 'required|string|max:255',
@@ -50,7 +50,7 @@ public function update($id)
 
 public function destroy($id)
 {
-    $project = Project::findOrFail($id);
+    $project = request()->user()->projects()->findOrFail($id);
     $project->delete();
 
     return redirect('/projects');
