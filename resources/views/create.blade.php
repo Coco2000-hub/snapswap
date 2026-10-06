@@ -3,13 +3,13 @@
 <form method="POST" action="/projects">
     @csrf
     <Label for="title">Title</Label>
-    <input type="text" id="title" name="title">
+    <input type="text" id="title" name="title" value="{{ old('title') }}">
     @error('title')
     <p>{{ $message }}</p>
 @enderror
 
     <label for="description">Description</label>
-<textarea id="description" name="description"></textarea>
+<textarea id="description" name="description">{{ old('description') }}</textarea>
 @error('description')
     <p>{{ $message }}</p>
 @enderror
