@@ -33,6 +33,10 @@ class ProjectController extends Controller
 
     public function create()
     {
+        if (request()->user()->isAdvisor()) {
+            abort(403, 'Advisors cannot create projects.');
+        }
+
         return view('create');
     }
    
@@ -70,6 +74,9 @@ public function destroy($id)
 
 public function store()
 {
+    if (request()->user()->isAdvisor()) {
+        abort(403, 'Advisors cannot store projects.');
+    }
  $data = request()->validate([
     'title' => 'required|string|max:255',
     'description' => 'required|string',

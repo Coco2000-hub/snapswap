@@ -1,6 +1,8 @@
 <h1>Create a new project </h1>
 <p>Signed in as {{ request()->user()->name }}</p>
 
+
+
 <form method="POST" action="/projects">
     @csrf
     <Label for="title">Title</Label>
@@ -16,4 +18,5 @@
 @enderror
 <button type="submit">Submit</button>
 </form>
+
 <h2><a href="/projects">Back to all projects</a></h2>
