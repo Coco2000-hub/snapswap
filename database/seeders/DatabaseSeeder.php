@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 use App\Models\Project;
 use App\Models\User;
+use App\Models\Comment;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,20 +16,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-       $admin = User::factory()->create([
-    'name' => 'Admin User',
-    'email' => 'admin@admin.com',
+       $customer = User::factory()->create([
+    'name' => 'Customer User',
+    'email' => 'customer@example.com',
     'password' => 'password',
 ]);
-User::factory()->create([
+$advisor = User::factory()->create([
     'name' => 'Advisor User',
-    'email' => 'advisor@admin.com',
+    'email' => 'advisor@example.com',
     'password' => 'password',
     'role' => 'advisor',
 ]);
-Project::factory()
+$projects = Project::factory()
     ->count(5)
-    ->for($admin)
+    ->for($customer)
     ->create();
+
+
+foreach ($projects as $project) {
+        Comment::factory()
+            ->count(2)
+            ->for($project)
+            ->for($advisor)
+            ->create();
+    }
 }
 }

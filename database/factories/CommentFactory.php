@@ -1,7 +1,8 @@
 <?php
 
 namespace Database\Factories;
-
+use App\Models\Project;
+use App\Models\User;
 use App\Models\Comment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -17,8 +18,10 @@ class CommentFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            //
+        return ['project_id' => Project::factory(),
+    'user_id' => User::factory(),
+    'content' => $this->faker->paragraph(),
+            
         ];
     }
 }
