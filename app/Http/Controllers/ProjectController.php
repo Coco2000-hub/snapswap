@@ -8,7 +8,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::all();
+        $projects = request()->user()->projects;
 
         return view('projects', ['projects' => $projects]);
     }
@@ -65,6 +65,7 @@ public function store()
 ]);
 
 $project = new Project();
+$project->user_id = request()->user()->id;
 $project->title = $data['title'];
 $project->description = $data['description'];
 $project->save();
