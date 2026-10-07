@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\CommentController;
 
 
 Route::get('/', function () {
@@ -19,7 +20,8 @@ Route::get('/projects/{id}',[ProjectController::class, 'show']);
 Route::get('/projects/{id}/edit', [ProjectController::class, 'edit']);
 Route::patch('/projects/{id}', [ProjectController::class, 'update'])->name('projects.update');
 Route::delete('/projects/{id}', [ProjectController::class, 'destroy'])->name('projects.destroy');
-
+Route::post('/projects/{id}/comments', [CommentController::class, 'store'])
+    ->name('comments.store');
 });
 
 Route::get('/dashboard', function () {
