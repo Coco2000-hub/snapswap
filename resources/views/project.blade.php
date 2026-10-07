@@ -14,5 +14,13 @@
 </form>
 
 @endif
+<h2>Comments</h2>
+@foreach ($project->comments as $comment)
+    <p>
+        {{ $comment->user->name }}:
+        {{ $comment->content }}
+    </p>
+@endforeach
+
 
 <h2><a href="/projects">Back to all projects</a></h2>

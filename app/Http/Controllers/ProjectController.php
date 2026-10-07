@@ -22,12 +22,13 @@ class ProjectController extends Controller
     {
   $user = request()->user();
 
+  
     if ($user->isAdvisor()) {
         $project = Project::findOrFail($id);
     } else {
         $project = $user->projects()->findOrFail($id);
     }
-
+    $project->load('comments.user');
         return view('project', ['project' => $project]);
     }
 
