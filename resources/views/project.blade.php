@@ -22,5 +22,19 @@
     </p>
 @endforeach
 
+<h2>Add comment</h2>
+
+<form method="POST" action="{{ route('comments.store', $project->id) }}">
+    @csrf
+
+    <label for="content">Comment</label>
+    <textarea id="content" name="content">{{ old('content') }}</textarea>
+
+    @error('content')
+        <p>{{ $message }}</p>
+    @enderror
+
+    <button type="submit">Add comment</button>
+</form>
 
 <h2><a href="/projects">Back to all projects</a></h2>
