@@ -55,10 +55,17 @@ public function update($id)
     $data = request()->validate([
         'title' => 'required|string|max:255',
         'description' => 'required|string',
+        'front_material' => 'required|string|in:white,oak,walnut',
+    'handle_style' => 'required|string|in:black_bar,brass_knob,handleless',
+    'worktop' => 'required|string|in:light_stone,dark_stone,wood',
     ]);
 
     $project->title = $data['title'];
     $project->description = $data['description'];
+    $project->front_material = $data['front_material'];
+$project->handle_style = $data['handle_style'];
+$project->worktop = $data['worktop'];
+
     $project->save();
 
     return redirect('/projects/' . $project->id);
@@ -81,12 +88,18 @@ public function store()
  $data = request()->validate([
     'title' => 'required|string|max:255',
     'description' => 'required|string',
+    'front_material' => 'required|string|in:white,oak,walnut',
+    'handle_style' => 'required|string|in:black_bar,brass_knob,handleless',
+    'worktop' => 'required|string|in:light_stone,dark_stone,wood',
 ]);
 
 $project = new Project();
 $project->user_id = request()->user()->id;
 $project->title = $data['title'];
 $project->description = $data['description'];
+$project->front_material = $data['front_material'];
+$project->handle_style = $data['handle_style'];
+$project->worktop = $data['worktop'];
 $project->save();
 
 return redirect('/projects');
