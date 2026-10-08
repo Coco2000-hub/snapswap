@@ -21,6 +21,21 @@ class ProjectFactory extends Factory
             'user_id' => User::factory(),
             'title' => $this->faker->sentence(),
             'description' => $this->faker->paragraph(),
+            'front_material' => $this->faker->randomElement([
+    'white',
+    'oak',
+    'walnut',
+]),
+'handle_style' => $this->faker->randomElement([
+    'black_bar',
+    'brass_knob',
+    'handleless',
+]),
+'worktop' => $this->faker->randomElement([
+    'light_stone',
+    'dark_stone',
+    'wood',
+]),
         ];
     }
 }
