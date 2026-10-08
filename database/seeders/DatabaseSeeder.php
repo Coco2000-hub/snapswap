@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     {
        $customer = User::factory()->create([
     'name' => 'Customer User',
-    'email' => 'customer@example.com',
+    'email' => 'admin@admin.com',
     'password' => 'password',
 ]);
 $advisor = User::factory()->create([
