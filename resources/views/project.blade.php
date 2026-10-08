@@ -1,5 +1,9 @@
+<x-app-layout>
 <h1>{{ $project->title }}</h1>
 <p>{{ $project->description }}</p>
+<p>Front material: {{ $project->front_material }}</p>
+<p>Handle style: {{ $project->handle_style }}</p>
+<p>Worktop: {{ $project->worktop }}</p>
 <p>Signed in as {{ request()->user()->name }}</p>
 @if ($project->user_id === request()->user()->id)
 <p>
@@ -38,3 +42,4 @@
 </form>
 
 <h2><a href="/projects">Back to all projects</a></h2>
+</x-app-layout>

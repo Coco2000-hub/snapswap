@@ -1,3 +1,4 @@
+<x-app-layout>
 <h1>My kitchen projects</h1>
 
 <p>Signed in as {{ request()->user()->name }}</p>
@@ -18,4 +19,5 @@
 </p>
 @endif
 @endforeach
-
+</x-app-layout>
+    
