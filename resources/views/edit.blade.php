@@ -54,6 +54,9 @@
         Walnut
     </label>
 </fieldset>
+@error('front_material')
+    <p>{{ $message }}</p>
+@enderror
 <fieldset>
     <legend>Handle style</legend>
 
@@ -88,6 +91,9 @@
         Handleless
     </label>
 </fieldset>
+@error('handle_style')
+    <p>{{ $message }}</p>
+@enderror
 
 <fieldset>
     <legend>Worktop</legend>
@@ -123,6 +129,9 @@
         Wood
     </label>
 </fieldset>
+@error('worktop')
+    <p>{{ $message }}</p>
+@enderror
 <button type="submit">Save changes</button>
 </form>
 

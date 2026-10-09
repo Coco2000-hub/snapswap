@@ -15,8 +15,15 @@
                     <x-breeze.nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-breeze.nav-link>
+                    <x-breeze.nav-link
+    :href="route('projects.index')"
+    :active="request()->is('projects*')"
+>
+    {{ __('Projects') }}
+</x-breeze.nav-link>
                 </div>
             </div>
+            
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -70,6 +77,12 @@
             <x-breeze.responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-breeze.responsive-nav-link>
+            <x-breeze.responsive-nav-link
+    :href="route('projects.index')"
+    :active="request()->is('projects*')"
+>
+    {{ __('Projects') }}
+</x-breeze.responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
