@@ -4,6 +4,7 @@
         {{ $project->title }}
     </h1>
 </x-slot>
+<div class="mx-4 my-8 max-w-4xl rounded-lg bg-white p-6 shadow-sm sm:mx-auto">
 <p>{{ $project->description }}</p>
 <p>Front material: {{ $project->front_material }}</p>
 <p>Handle style: {{ $project->handle_style }}</p>
@@ -46,4 +47,5 @@
 </form>
 
 <h2><a href="/projects">Back to all projects</a></h2>
+</div>
 </x-app-layout>

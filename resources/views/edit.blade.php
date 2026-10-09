@@ -4,6 +4,7 @@
         Edit project
     </h1>
 </x-slot>
+<div class="mx-4 my-8 max-w-4xl rounded-lg bg-white p-6 shadow-sm sm:mx-auto">
 <p>Signed in as {{ request()->user()->name }}</p>
 
 
@@ -140,4 +141,6 @@
 </form>
 
 <a href="/projects">Back to all projects</a>
+
+</div>
 </x-app-layout>

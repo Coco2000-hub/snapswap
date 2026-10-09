@@ -1,5 +1,11 @@
 <x-app-layout>
-<h1>My kitchen projects</h1>
+<x-slot name="header">
+    <h1 class="text-xl font-semibold text-gray-800">
+        My kitchen projects
+    </h1>
+</x-slot>
+
+<div class="mx-4 my-8 max-w-4xl rounded-lg bg-white p-6 shadow-sm sm:mx-auto">
 
 <p>Signed in as {{ request()->user()->name }}</p>
 
@@ -19,5 +25,5 @@
 </p>
 @endif
 @endforeach
+</div>
 </x-app-layout>
-    
