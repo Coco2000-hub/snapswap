@@ -8,25 +8,51 @@
 <p>Signed in as {{ request()->user()->name }}</p>
 
 
-<form method="POST" action="/projects/{{ $project->id }}">
+<form
+    method="POST"
+    action="/projects/{{ $project->id }}"
+    class="space-y-6"
+>
     @csrf
     @method('PATCH')
 
 
-<label for="title">Title</label>
-<input type="text" id="title" name="title"
-       value="{{ $project->title }}">
-       @error('title')
-    <p>{{ $message }}</p>
-@enderror
+<div>
+    <label for="title" class="block font-medium">
+        Title
+    </label>
 
-<label for="description">Description</label>
-<textarea id="description" name="description">{{ $project->description }}</textarea>
-@error('description')
-    <p>{{ $message }}</p>
-@enderror
-<fieldset>
-    <legend>Front material</legend>
+    <input
+        type="text"
+        id="title"
+        name="title"
+        value="{{ $project->title }}"
+        class="mt-1 w-full rounded-md border border-gray-300 p-2"
+    >
+
+    @error('title')
+        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+    @enderror
+</div>
+
+<div>
+    <label for="description" class="block font-medium">
+        Description
+    </label>
+
+    <textarea
+        id="description"
+        name="description"
+        rows="4"
+        class="mt-1 w-full rounded-md border border-gray-300 p-2"
+    >{{ $project->description }}</textarea>
+
+    @error('description')
+        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+    @enderror
+</div>
+<fieldset class="rounded-md border border-gray-200 p-4">
+    <legend class="px-1 font-medium">Front material</legend>
 
     <label>
         <input
@@ -62,8 +88,8 @@
 @error('front_material')
     <p>{{ $message }}</p>
 @enderror
-<fieldset>
-    <legend>Handle style</legend>
+<fieldset class="rounded-md border border-gray-200 p-4">
+    <legend class="px-1 font-medium">Handle style</legend>
 
     <label>
         <input
@@ -100,8 +126,8 @@
     <p>{{ $message }}</p>
 @enderror
 
-<fieldset>
-    <legend>Worktop</legend>
+<fieldset class="rounded-md border border-gray-200 p-4">
+    <legend class="px-1 font-medium">Worktop</legend>
 
     <label>
         <input
@@ -137,10 +163,19 @@
 @error('worktop')
     <p>{{ $message }}</p>
 @enderror
-<button type="submit">Save changes</button>
+<button
+    type="submit"
+    class="rounded-md bg-gray-800 px-4 py-2 font-semibold text-white hover:bg-gray-700"
+>
+    Save changes
+</button>
 </form>
 
-<a href="/projects">Back to all projects</a>
-
+<a
+    href="/projects"
+    class="mt-6 inline-flex text-sm font-medium text-gray-600 hover:underline"
+>
+    Back to all projects
+</a>
 </div>
 </x-app-layout>
