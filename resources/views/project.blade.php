@@ -1,5 +1,9 @@
 <x-app-layout>
-<h1>{{ $project->title }}</h1>
+<x-slot name="header">
+    <h1 class="text-xl font-semibold text-gray-800">
+        {{ $project->title }}
+    </h1>
+</x-slot>
 <p>{{ $project->description }}</p>
 <p>Front material: {{ $project->front_material }}</p>
 <p>Handle style: {{ $project->handle_style }}</p>

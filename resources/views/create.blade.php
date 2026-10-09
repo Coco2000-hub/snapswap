@@ -1,5 +1,9 @@
 <x-app-layout>
-<h1>Create a new project </h1>
+<x-slot name="header">
+    <h1 class="text-xl font-semibold text-gray-800">
+        Create a new project
+    </h1>
+</x-slot>
 <p>Signed in as {{ request()->user()->name }}</p>
 
 
