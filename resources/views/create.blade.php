@@ -9,21 +9,44 @@
 
 
 
-<form method="POST" action="/projects">
+<form method="POST" action="/projects" class="space-y-6">
     @csrf
-    <Label for="title">Title</Label>
-    <input type="text" id="title" name="title" value="{{ old('title') }}">
-    @error('title')
-    <p>{{ $message }}</p>
-@enderror
+    <div>
+    <label for="title" class="block font-medium">
+        Title
+    </label>
 
-    <label for="description">Description</label>
-<textarea id="description" name="description">{{ old('description') }}</textarea>
-@error('description')
-    <p>{{ $message }}</p>
-@enderror
-<fieldset>
-    <legend>Front material</legend>
+    <input
+        type="text"
+        id="title"
+        name="title"
+        value="{{ old('title') }}"
+        class="mt-1 w-full rounded-md border border-gray-300 p-2"
+    >
+
+    @error('title')
+        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+    @enderror
+</div>
+
+    <div>
+    <label for="description" class="block font-medium">
+        Description
+    </label>
+
+    <textarea
+        id="description"
+        name="description"
+        rows="4"
+        class="mt-1 w-full rounded-md border border-gray-300 p-2"
+    >{{ old('description') }}</textarea>
+
+    @error('description')
+        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+    @enderror
+</div>
+<fieldset class="rounded-md border border-gray-200 p-4">
+    <legend class="px-1 font-medium">Front material</legend>
 
     <label>
         <input type="radio" name="front_material" value="white" required>
@@ -43,8 +66,8 @@
     <p>{{ $message }}</p>
 @enderror
 </fieldset>
-<fieldset>
-    <legend>Handle style</legend>
+<fieldset class="rounded-md border border-gray-200 p-4">
+    <legend class="px-1 font-medium">Handle style</legend>
 
     <label>
         <input type="radio" name="handle_style" value="black_bar" required>
@@ -65,8 +88,8 @@
     <p>{{ $message }}</p>
 @enderror
 
-<fieldset>
-    <legend>Worktop</legend>
+<fieldset class="rounded-md border border-gray-200 p-4">
+    <legend class="px-1 font-medium">Worktop</legend>
 
     <label>
         <input type="radio" name="worktop" value="light_stone" required>
@@ -86,9 +109,19 @@
 @error('worktop')
     <p>{{ $message }}</p>
 @enderror
-<button type="submit">Submit</button>
+<button
+    type="submit"
+    class="rounded-md bg-gray-800 px-4 py-2 font-semibold text-white hover:bg-gray-700"
+>
+    Create project
+</button>
 </form>
 
-<h2><a href="/projects">Back to all projects</a></h2>
+<a
+    href="/projects"
+    class="mt-6 inline-flex text-sm font-medium text-gray-600 hover:underline"
+>
+    Back to all projects
+</a>
 </div>
 </x-app-layout>
