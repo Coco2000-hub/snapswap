@@ -34,6 +34,9 @@
         <input type="radio" name="front_material" value="walnut">
         Walnut
     </label>
+    @error('front_material')
+    <p>{{ $message }}</p>
+@enderror
 </fieldset>
 <fieldset>
     <legend>Handle style</legend>
@@ -53,6 +56,9 @@
         Handleless
     </label>
 </fieldset>
+@error('handle_style')
+    <p>{{ $message }}</p>
+@enderror
 
 <fieldset>
     <legend>Worktop</legend>
@@ -72,6 +78,9 @@
         Wood
     </label>
 </fieldset>
+@error('worktop')
+    <p>{{ $message }}</p>
+@enderror
 <button type="submit">Submit</button>
 </form>
 
