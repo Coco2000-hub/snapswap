@@ -26,7 +26,7 @@
         type="text"
         id="title"
         name="title"
-        value="{{ $project->title }}"
+        value="{{ old('title', $project->title) }}"
         class="mt-1 w-full rounded-md border border-gray-300 p-2"
     >
 
@@ -45,7 +45,7 @@
         name="description"
         rows="4"
         class="mt-1 w-full rounded-md border border-gray-300 p-2"
-    >{{ $project->description }}</textarea>
+    >{{ old('description', $project->description) }}</textarea>
 
     @error('description')
         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -59,7 +59,7 @@
             type="radio"
             name="front_material"
             value="white"
-            @checked($project->front_material === 'white')
+            @checked(old('front_material', $project->front_material) === 'white')
             required
         >
         White
@@ -70,7 +70,7 @@
             type="radio"
             name="front_material"
             value="oak"
-            @checked($project->front_material === 'oak')
+            @checked(old('front_material', $project->front_material) === 'oak')
         >
         Oak
     </label>
@@ -80,7 +80,7 @@
             type="radio"
             name="front_material"
             value="walnut"
-            @checked($project->front_material === 'walnut')
+            @checked(old('front_material', $project->front_material) === 'walnut')
         >
         Walnut
     </label>
@@ -96,7 +96,7 @@
             type="radio"
             name="handle_style"
             value="black_bar"
-            @checked($project->handle_style === 'black_bar')
+            @checked(old('handle_style', $project->handle_style) === 'black_bar')
             required
         >
         Black bar handle
@@ -107,7 +107,7 @@
             type="radio"
             name="handle_style"
             value="brass_knob"
-            @checked($project->handle_style === 'brass_knob')
+            @checked(old('handle_style', $project->handle_style) === 'brass_knob')
         >
         Brass knob
     </label>
@@ -117,7 +117,7 @@
             type="radio"
             name="handle_style"
             value="handleless"
-            @checked($project->handle_style === 'handleless')
+            @checked(old('handle_style', $project->handle_style) === 'handleless')
         >
         Handleless
     </label>
@@ -134,7 +134,7 @@
             type="radio"
             name="worktop"
             value="light_stone"
-            @checked($project->worktop === 'light_stone')
+            @checked(old('worktop', $project->worktop) === 'light_stone')
             required
         >
         Light stone
@@ -145,7 +145,7 @@
             type="radio"
             name="worktop"
             value="dark_stone"
-            @checked($project->worktop === 'dark_stone')
+            @checked(old('worktop', $project->worktop) === 'dark_stone')
         >
         Dark stone
     </label>
@@ -155,7 +155,7 @@
             type="radio"
             name="worktop"
             value="wood"
-            @checked($project->worktop === 'wood')
+            @checked(old('worktop', $project->worktop) === 'wood')
         >
         Wood
     </label>

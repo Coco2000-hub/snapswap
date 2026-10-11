@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\CommentController;
-
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\Userzone\ProfileController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
@@ -11,18 +11,17 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
 
+    Route::get('/projects', [ProjectController::class, 'index'])
+        ->name('projects.index');
+    Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
+    Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
 
-Route::get('/projects', [ProjectController::class, 'index'])
-->name('projects.index');
-Route::get('/projects/create', [ProjectController::class, 'create']);
-Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
-
-Route::get('/projects/{id}',[ProjectController::class, 'show']);
-Route::get('/projects/{id}/edit', [ProjectController::class, 'edit']);
-Route::patch('/projects/{id}', [ProjectController::class, 'update'])->name('projects.update');
-Route::delete('/projects/{id}', [ProjectController::class, 'destroy'])->name('projects.destroy');
-Route::post('/projects/{id}/comments', [CommentController::class, 'store'])
-    ->name('comments.store');
+    Route::get('/projects/{id}', [ProjectController::class, 'show'])->name('projects.show');
+    Route::get('/projects/{id}/edit', [ProjectController::class, 'edit'])->name('projects.edit');
+    Route::patch('/projects/{id}', [ProjectController::class, 'update'])->name('projects.update');
+    Route::delete('/projects/{id}', [ProjectController::class, 'destroy'])->name('projects.destroy');
+    Route::post('/projects/{id}/comments', [CommentController::class, 'store'])
+        ->name('comments.store');
 });
 
 Route::get('/dashboard', function () {
@@ -30,9 +29,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';

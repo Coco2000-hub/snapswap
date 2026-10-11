@@ -49,17 +49,17 @@
     <legend class="px-1 font-medium">Front material</legend>
 
     <label>
-        <input type="radio" name="front_material" value="white" required>
+        <input type="radio" name="front_material" value="white" @checked(old('front_material') === 'white') required>
         White
     </label>
 
     <label>
-        <input type="radio" name="front_material" value="oak">
+        <input type="radio" name="front_material" value="oak" @checked(old('front_material') === 'oak')>
         Oak
     </label>
 
     <label>
-        <input type="radio" name="front_material" value="walnut">
+        <input type="radio" name="front_material" value="walnut" @checked(old('front_material') === 'walnut')>
         Walnut
     </label>
     @error('front_material')
@@ -70,17 +70,17 @@
     <legend class="px-1 font-medium">Handle style</legend>
 
     <label>
-        <input type="radio" name="handle_style" value="black_bar" required>
+        <input type="radio" name="handle_style" value="black_bar" @checked(old('handle_style') === 'black_bar') required>
         Black bar handle
     </label>
 
     <label>
-        <input type="radio" name="handle_style" value="brass_knob">
+        <input type="radio" name="handle_style" value="brass_knob" @checked(old('handle_style') === 'brass_knob')>
         Brass knob
     </label>
 
     <label>
-        <input type="radio" name="handle_style" value="handleless">
+        <input type="radio" name="handle_style" value="handleless" @checked(old('handle_style') === 'handleless')>
         Handleless
     </label>
 </fieldset>
@@ -92,17 +92,17 @@
     <legend class="px-1 font-medium">Worktop</legend>
 
     <label>
-        <input type="radio" name="worktop" value="light_stone" required>
+        <input type="radio" name="worktop" value="light_stone" @checked(old('worktop') === 'light_stone') required>
         Light stone
     </label>
 
     <label>
-        <input type="radio" name="worktop" value="dark_stone">
+        <input type="radio" name="worktop" value="dark_stone" @checked(old('worktop') === 'dark_stone')>
         Dark stone
     </label>
 
     <label>
-        <input type="radio" name="worktop" value="wood">
+        <input type="radio" name="worktop" value="wood" @checked(old('worktop') === 'wood')>
         Wood
     </label>
 </fieldset>
