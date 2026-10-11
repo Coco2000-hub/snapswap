@@ -55,6 +55,7 @@
     <legend class="px-1 font-medium">Front material</legend>
 
     <label>
+        <img src="{{ asset('images/front-materials/white.jpg') }}" alt="White kitchen front" width="160">
         <input
             type="radio"
             name="front_material"
@@ -66,6 +67,7 @@
     </label>
 
     <label>
+        <img src="{{ asset('images/front-materials/oak.jpg') }}" alt="Oak kitchen front" width="160">
         <input
             type="radio"
             name="front_material"
@@ -76,6 +78,7 @@
     </label>
 
     <label>
+        <img src="{{ asset('images/front-materials/walnut.jpg') }}" alt="Walnut kitchen front" width="160">
         <input
             type="radio"
             name="front_material"
@@ -92,6 +95,7 @@
     <legend class="px-1 font-medium">Handle style</legend>
 
     <label>
+        <img src="{{ asset('images/handle-styles/black_bar.jpg') }}" alt="Black bar handle" width="160">
         <input
             type="radio"
             name="handle_style"
@@ -103,6 +107,7 @@
     </label>
 
     <label>
+        <img src="{{ asset('images/handle-styles/brass_knob.jpg') }}" alt="Brass knob" width="160">
         <input
             type="radio"
             name="handle_style"
@@ -113,6 +118,7 @@
     </label>
 
     <label>
+        <img src="{{ asset('images/handle-styles/handleless.jpg') }}" alt="Handleless kitchen front" width="160">
         <input
             type="radio"
             name="handle_style"
@@ -130,6 +136,7 @@
     <legend class="px-1 font-medium">Worktop</legend>
 
     <label>
+        <img src="{{ asset('images/worktops/light_stone.jpg') }}" alt="Light stone worktop" width="160">
         <input
             type="radio"
             name="worktop"
@@ -141,6 +148,7 @@
     </label>
 
     <label>
+        <img src="{{ asset('images/worktops/dark_stone.jpg') }}" alt="Dark stone worktop" width="160">
         <input
             type="radio"
             name="worktop"
@@ -151,6 +159,7 @@
     </label>
 
     <label>
+        <img src="{{ asset('images/worktops/wood.jpg') }}" alt="Wood worktop" width="160">
         <input
             type="radio"
             name="worktop"

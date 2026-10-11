@@ -15,16 +15,19 @@
             <span class="font-medium">Front material:</span>
             {{ $project->front_material }}
         </p>
+        <img src="{{ asset('images/front-materials/'.$project->front_material.'.jpg') }}" alt="Selected front material" width="240">
 
         <p>
             <span class="font-medium">Handle style:</span>
             {{ $project->handle_style }}
         </p>
+        <img src="{{ asset('images/handle-styles/'.$project->handle_style.'.jpg') }}" alt="Selected handle style" width="240">
 
         <p>
             <span class="font-medium">Worktop:</span>
             {{ $project->worktop }}
         </p>
+        <img src="{{ asset('images/worktops/'.$project->worktop.'.jpg') }}" alt="Selected worktop" width="240">
     </div>
 </div>
 
