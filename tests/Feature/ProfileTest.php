@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Project;
 use App\Models\User;
 
 test('profile page is displayed', function () {
@@ -9,7 +10,7 @@ test('profile page is displayed', function () {
         ->actingAs($user)
         ->get('/profile');
 
-    $response->assertOk();
+    $response->assertOk()->assertDontSee('Delete Account');
 });
 
 test('profile information can be updated', function () {
@@ -50,8 +51,9 @@ test('email verification status is unchanged when the email address is unchanged
     expect($user->refresh()->email_verified_at)->not->toBeNull();
 });
 
-test('user can delete their account', function () {
+test('account deletion is unavailable and preserves the user and their projects', function () {
     $user = User::factory()->create();
+    $project = Project::factory()->create(['user_id' => $user->id]);
 
     $response = $this
         ->actingAs($user)
@@ -59,27 +61,8 @@ test('user can delete their account', function () {
             'password' => 'password',
         ]);
 
-    $response
-        ->assertSessionHasNoErrors()
-        ->assertRedirect('/');
-
-    $this->assertGuest();
-    expect($user->fresh())->toBeNull();
-});
-
-test('correct password must be provided to delete account', function () {
-    $user = User::factory()->create();
-
-    $response = $this
-        ->actingAs($user)
-        ->from('/profile')
-        ->delete('/profile', [
-            'password' => 'wrong-password',
-        ]);
-
-    $response
-        ->assertSessionHasErrorsIn('userDeletion', 'password')
-        ->assertRedirect('/profile');
-
-    expect($user->fresh())->not->toBeNull();
+    $response->assertMethodNotAllowed();
+    $this->assertAuthenticatedAs($user);
+    $this->assertModelExists($user);
+    $this->assertModelExists($project);
 });
